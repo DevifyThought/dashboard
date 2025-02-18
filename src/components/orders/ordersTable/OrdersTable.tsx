@@ -8,7 +8,7 @@ import {
   TableRow,
 } from "../../ui/table";
 import Badge from "../../ui/badge/Badge";
-import { FaEdit, FaTrash, FaPlus } from "react-icons/fa";
+import { FaEdit, FaTrash } from "react-icons/fa";
 
 const initialOrders = [
   { id: "ORD001", customer: "Customer 1", status: "Pending", total: "100" },
@@ -18,51 +18,9 @@ const initialOrders = [
 ];
 
 export default function OrdersTable() {
-  const [orders, setOrders] = useState(initialOrders);
 
   return (
     <div>
-
-      {/* Orders Table */}
-      {/* <div className="overflow-hidden rounded-xl border border-gray-200 bg-white">
-        <div className="max-w-full overflow-x-auto">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableCell isHeader>Order ID</TableCell>
-                <TableCell isHeader>Customer</TableCell>
-                <TableCell isHeader>Status</TableCell>
-                <TableCell isHeader>Total</TableCell>
-                <TableCell isHeader>Actions</TableCell>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {orders.map((order) => (
-                <TableRow key={order.id}>
-                  <TableCell>{order.id}</TableCell>
-                  <TableCell>{order.customer}</TableCell>
-                  <TableCell>
-                    <Badge color={
-                      order.status === "Delivered" ? "success" :
-                      order.status === "Shipped" ? "warning" :
-                      order.status === "Cancelled" ? "error" : "info"
-                    }>
-                      {order.status}
-                    </Badge>
-                  </TableCell>
-                  <TableCell>{order.total}</TableCell>
-                  <TableCell>
-                    <div className="flex gap-3">
-                      <button className="text-blue-500 hover:text-blue-700"><FaEdit size={16} /></button>
-                      <button className="text-red-500 hover:text-red-700"><FaTrash size={16} /></button>
-                    </div>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </div>
-      </div> */}
       <div className="overflow-hidden rounded-xl border border-gray-200 bg-white dark:border-white/[0.05] dark:bg-white/[0.03]">
         <div className="max-w-full overflow-x-auto">
           <div className="min-w-[800px]">
@@ -87,7 +45,7 @@ export default function OrdersTable() {
                 </TableRow>
               </TableHeader>
               <TableBody className="divide-y divide-gray-100 dark:divide-white/[0.05]">
-                {orders.map((order) => (
+                {initialOrders.map((order) => (
                   <TableRow key={order.id}>
                     <TableCell className="px-4 py-3 text-gray-500 text-start text-theme-sm dark:text-gray-400">
                       {order.id}
